@@ -1,13 +1,7 @@
-#!/usr/bin/python
-
 import math 
 import sys
 
 def Rg(filename):
-	'''
-	Calculates the Radius of Gyration (Rg) of a protein given its .pdb 
-	structure file. Returns the Rg integer value in Angstrom.
-	'''
 	coord = list()
 	mass = list()
 	Structure = open(filename, 'r')
