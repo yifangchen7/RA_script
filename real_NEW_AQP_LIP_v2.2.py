@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 ###Step 1###
 #use GetContacts to get corresponding tsv files#
 #..//getcontacts/get_dynamic_contacts.py --topology ref.pdb --trajectory MD.xtc --itypes all --output contacts_D_H.tsv --sele "chain D" --sele2 "chain H"
@@ -161,18 +155,6 @@ plt.tight_layout()
 plt.savefig('./contact_frequency_R1_cutoff.pdf', dpi=600, bbox_inches='tight')
 #plt.show()
 
-
-
-
-
-
-
-
-
-
-
-
-
 input_files = [
     './R2/converted_A_E_2.tsv',
     './R2/converted_B_F_2.tsv',
@@ -238,10 +220,6 @@ pivot_df = pivot_df.reindex(index=residue_1_categories, columns=residue_2_catego
 sorted_filtered_df[['residue_1_num', 'residue_2_num', 'average_contact_frequency']].to_csv(
     './R2/sorted_filtered_averaged_contact_frequencies_by_residue_numeric.tsv',
     sep='\t', index=False)
-
-#---------------------------------------------------------------
-
-#---------------------------------------------------------------
 # Generate a heatmap
 plt.figure(figsize=(15, 10))  # Adjust size for clarity
 heatmap = sns.heatmap(
