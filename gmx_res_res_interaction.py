@@ -1,3 +1,4 @@
+#gmx res_res contact analysis
 import numpy as np
 import matplotlib.pyplot as plt
 
