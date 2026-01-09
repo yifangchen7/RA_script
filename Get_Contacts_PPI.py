@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import csv
 def convert_residue_name(residue):
     # Dictionary mapping three-letter residue codes to one-letter codes
@@ -48,8 +42,8 @@ def process_tsv(input_file, output_file):
             row = [convert_residue_name(item.split(":")[0]) + item.split(":")[1] if ':' in item else item for item in row]
             writer.writerow(row)
 
-input_file = '/Users/chenyifang/Desktop/RA/RGX/R1/frequency_1.tsv'
-output_file = '/Users/chenyifang/Desktop/RA/RGX/R1/frequency_1_converted.tsv'
+input_file = './frequency_1.tsv'
+output_file = './frequency_1_converted.tsv'
 process_tsv(input_file, output_file)
 
 #plotting
@@ -58,7 +52,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Read the TSV file into a DataFrame with explicit column names
-file_path = '/Users/chenyifang/Desktop/RA/RGX/R1/frequency_1_converted.tsv'
+file_path = './frequency_1_converted.tsv'
 column_names = ['residue', 'ligand', 'contact_frequency']
 df = pd.read_csv(file_path, delimiter='\t', names=column_names)
 
@@ -77,7 +71,7 @@ plt.show()
 ######reorder the residues based on the id######
 import pandas as pd
 # Read the TSV file into a DataFrame
-df = pd.read_csv("/Users/chenyifang/Desktop/RA/RGX/R1/frequency_1_converted.tsv", delimiter="\t", skiprows=2)
+df = pd.read_csv("./frequency_1_converted.tsv", delimiter="\t", skiprows=2)
 df.columns = ['Lig', 'residue', 'frequency']
 
 # extract residue numbers from a string
@@ -93,5 +87,5 @@ df_sorted = df.sort_values(by='residue_numbers')
 df_sorted.drop(columns=['residue_numbers'], inplace=True)
 
 # Write the sorted DataFrame back to a CSV file
-df_sorted.to_csv("/Users/chenyifang/Desktop/RA/RGX/R1/new.csv", index=False)
+df_sorted.to_csv("./new.csv", index=False)
 
